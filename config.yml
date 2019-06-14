@@ -1,0 +1,58 @@
+Wands:
+  - Heal
+  - Sell
+
+Heal:
+  DisplayName: "&aHeal Wand"
+  Lore:
+    - "&cCharges left: %charge%"
+  Material: WOOL
+  # -1 for unlimited
+  Charges: 55
+  # Seconds. -1 for none.
+  Cooldown: 15
+  Glow: true
+  # Check if is owner
+  IslandCheck: false
+  # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/block/Action.html
+  Actions: ["RIGHT_CLICK_AIR", "RIGHT_CLICK_BLOCK"]
+  AttachedCommands:
+    - "heal %player%"
+    - "wands helpers msg %player% &bYou used the wand"
+
+Sell:
+  DisplayName: "&aSell Wand"
+  Lore:
+    - "&cCharges left: %charge%"
+  Material: WOOL
+  # -1 for unlimited
+  Charges: -1
+  # Seconds. -1 for none.
+  Cooldown: -1
+  Glow: true
+  # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/block/Action.html
+  Actions: ["LEFT_CLICK_BLOCK", "RIGHT_CLICK_BLOCK"]
+  # Material of allowed block clicks. Not needed for heal because allows air clicks therefore does not use %block%.
+  BlockCheck: ["CHEST"]
+  IslandCheck: true
+  AttachedCommands:
+    - "wands helpers sell %player% %block%"
+    - "wands helpers msg %player% &bYou used the wand"
+
+# Destroy when charge 0
+DestroyWand: true
+
+Messages:
+  NO_PERMISSION: "&cYou do not have permission to run this command."
+  MAIN_USAGE_MESSAGE: "&cUsage: &a /wands give %player% %wand%, /wands reload or /wands list"
+  RELOAD: "&cWands has been reloaded."
+  GIVE_USAGE_MESSAGE: "&cUsage: &a /wands give %player% %wand%"
+  INVALID_PLAYER: "&c&l(!) &cThat player could not be found."
+  GIVEN_MESSAGE: "&a&l(!) &7You were successfully given a &c&lwand&7!"
+  WANDS_LIST: "&aWands: &c%wands%"
+  WAND_NOT_FOUND: "&aThat wand does not exist!"
+  COOLDOWN: "&bYou are on cooldown for %secs% seconds."
+  WAND_OUT: "&bYour wand is out of charge."
+  BLOCKS_CHECK: "&bThis wand cannot be used on this block!"
+  SOLD: "&aSold &b%item% &afor &b%amount%!"
+  ISLAND_OWNER: "&bYou must be the island owner to sell!"

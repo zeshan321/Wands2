@@ -1,0 +1,8 @@
+name: Wands
+main: com.zeshanasalm.wands.Main
+version: 1.0.0
+softdepend: [ASkyBlock]
+depend: [Essentials, Vault]
+commands:
+  wands:
+    description: Wands main command.
